@@ -17,6 +17,30 @@ import java.util.List;
  */
 @Service
 public class ProductService {
+    @Autowired
+    private ProductRepository productRepository;
+    //@Transactional(readOnly=true)
+    public List<Product> findAll() {
+        return productRepository.findAll();
+    }
+
+    //@Transactional
+    public void addAll(Collection<Product> products) {
+        for (Product product : products) {
+            productRepository.save(product);
+        }
+    }
+
+    //TODO why is not active: @Transactional(readOnly=true)
+    public List<Product> findByNameIs(String name) {
+        return productRepository.findByNameIs(name);
+    }
+
+    //@Transactional(readOnly=true)
+    public List<Product> findByNameContainingIgnoreCase(String searchString) {
+        return productRepository.findByNameContainingIgnoreCase(searchString);
+    }
+
 
 
 }
