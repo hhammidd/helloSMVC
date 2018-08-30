@@ -8,7 +8,7 @@ import javax.persistence.Id;
  *  fields can be public. (Clean-Code)
  */
 @Entity
-public class Product {
+public class  Product {
 	
     @Id
 	public Integer id;
